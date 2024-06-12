@@ -1,0 +1,74 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "firstname": "Wilbur",
+      "lastname": "Rogers",
+      "gender": "M",
+      "score": 80
+    },
+    {
+      "id": "2",
+      "firstname": "Lorenzo",
+      "lastname": "Underwood",
+      "gender": "M",
+      "score": 40.5
+    },
+    {
+      "id": "3",
+      "firstname": "Pearl",
+      "lastname": "Johnson",
+      "gender": "F",
+      "score": 60.45
+    },
+    {
+      "id": "4",
+      "firstname": "Russell",
+      "lastname": "Patrick",
+      "gender": "M",
+      "score": 70.5
+    },
+    {
+      "score": 44.25,
+      "gender": "M",
+      "lastname": "Watts",
+      "firstname": "Nicolas",
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "firstname": "Anny",
+      "lastname": "Bates",
+      "gender": "F",
+      "score": 74.5
+    },
+    {
+      "id": "d80c",
+      "firstname": "devit",
+      "lastname": "omg",
+      "gender": "M",
+      "score": "5"
+    },
+    {
+      "id": "5672",
+      "firstname": "potogus",
+      "lastname": "oum",
+      "gender": "M",
+      "score": "55.55"
+    },
+    {
+      "score": 88.55,
+      "gender": "M",
+      "lastname": "pow",
+      "firstname": "proti",
+      "id": "fc4f"
+    },
+    {
+      "id": "133a",
+      "firstname": "eat",
+      "lastname": "lak",
+      "gender": "F",
+      "score": "99.66"
+    }
+  ]
+}
