@@ -47,6 +47,7 @@ const switch_Gender = (gender) => {
                                  <span>{d.gender}</span>
                             </Tooltip>
                             <td>{parseFloat(d.score).toFixed(2)}</td>
+                            <td>{parseFloat(d.score).toFixed(2)}</td>
                         </tr>
                     ))}
                 </tbody>
