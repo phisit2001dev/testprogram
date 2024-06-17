@@ -84,7 +84,7 @@ function EditForm() {
           value={data.gender}
           onChange={e => setData({ ...data, gender: e.target.value })}
         >
-          <MenuItem value=''>Select Gender</MenuItem>
+          <MenuItem value=''></MenuItem>
           <MenuItem value='M'>Male</MenuItem>
           <MenuItem value='F'>Female</MenuItem>
           <MenuItem value='U'>Unknown</MenuItem>
