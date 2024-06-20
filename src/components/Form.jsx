@@ -23,21 +23,40 @@
         function onSubmit() {
             axios.post('http://localhost:3000/user', inputData)
                 .then(res => {
-
+                    location.reload();
                     console.log(res.data);
                 })
                 .catch(err => {
                     console.error(err);
                 });
         };
+
         const handleRefresh = () => {
             reset({
                 firstname: '',
                 lastname: '',
-                gender: '',
                 score: ''
             });
+            setInpuData({
+                firstname: '',
+                lastname: '',
+                score: '',
+                gender: ''
+            })
         };
+
+
+        const handleInputChange = (event) => {
+            const values = event.target.value;
+            setInpuData({ ...inputData, score: values})
+            if (/^\d*$/.test(value)) {
+              event.target.value = values;
+            } else {
+              event.preventDefault();
+            }
+          };
+
+          
 
         return (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -69,12 +88,13 @@
                         {errors.gender && <FormHelperText error>{errors.gender.message}</FormHelperText>}
                     </Grid>
                     <Grid item xs={12} sm={6}>
-                        <TextField label="Score" id="score" {...register('score')} onChange={e => setInpuData({ ...inputData, score: e.target.value })} fullWidth />
+                        <TextField label="Score" id="score" {...register('score')} onChange={handleInputChange} fullWidth type="number"/>
                         {errors.score && <FormHelperText error>{errors.score.message}</FormHelperText>}
                     </Grid>
                     <Grid item xs={12}>
                         <Button variant='contained' type='submit' style={{ marginRight: '10px' }}>Add</Button>
                         <Button variant='outlined' onClick={handleRefresh}>Cancel</Button>
+                       
                     </Grid>
                 </Grid>
             </form>

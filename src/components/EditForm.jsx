@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
+
 
 function EditForm() {
   const schema = yup.object().shape({
@@ -27,7 +28,7 @@ function EditForm() {
     gender: '',
     score: ''
   });
-
+  const navigate = useNavigate();
   useEffect(() => {
     axios.get(`http://localhost:3000/user/${id}`)
       .then(res => {
@@ -40,18 +41,29 @@ function EditForm() {
   const onSubmit = (formData) => {
     axios.put(`http://localhost:3000/user/${id}`, formData)
       .then(res => {
+        navigate('/');
         console.log();
       })
       .catch(err => console.log(err));
   };
 
   const handleRefresh = () => {
-    reset({
-    firstname: '',
-    lastname: '',
-    gender: '',
-    score: ''
+    setData({
+      firstname: '',
+      lastname: '',
+      gender: '',
+      score: '',
     });
+};
+
+const handleInputChange = (event) => {
+  const value = event.target.value;
+  setData({ ...data, score: value})
+  if (/^\d*$/.test(value)) {
+    event.target.value = value;
+  } else {
+    event.preventDefault();
+  }
 };
 
   return (
@@ -62,6 +74,7 @@ function EditForm() {
           label="firstname"
           id="firstname"
           {...register('firstname')}
+          
           value={data.firstname}
           onChange={e => setData({ ...data, firstname: e.target.value })}
         />
@@ -95,9 +108,10 @@ function EditForm() {
           label="score"
           id="score"
           type="number"
+          inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           {...register('score')}
           value={data.score}
-          onChange={e => setData({ ...data, score: e.target.value })}
+          onChange={handleInputChange}
         />
         {errors.score && <FormHelperText error>{errors.score.message}</FormHelperText>}
 
